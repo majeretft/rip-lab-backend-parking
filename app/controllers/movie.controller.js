@@ -138,11 +138,11 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published Movies
+// Find Movies by year
 exports.findAllByYear = (req, res) => {
-  const year = +req.query.year;
+  const year = req.params.year;
 
-  Tutorial.findAll({ where: { year: year } })
+  Movie.findAll({ where: { year: year } })
     .then((data) => {
       res.send(data);
     })

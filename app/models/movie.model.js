@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Movie = sequelize.define("movie", {
+  const Model = sequelize.define("movie", {
     name: {
       type: Sequelize.STRING,
     },
@@ -20,5 +20,5 @@ module.exports = (sequelize, Sequelize) => {
     },
   });
 
-  return Movie;
+  return Model;
 };

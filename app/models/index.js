@@ -20,5 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.movies = require("./movie.model.js")(sequelize, Sequelize);
+db.seats = require("./seat.model.js")(sequelize, Sequelize);
 
 module.exports = db;
