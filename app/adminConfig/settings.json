@@ -123,7 +123,7 @@
                 "name": "createdAt",
                 "verbose": "createdAt",
                 "control": {
-                    "text": true
+                    "datetime": true
                 },
                 "type": "datetime",
                 "allowNull": false,
@@ -139,7 +139,107 @@
                 "name": "updatedAt",
                 "verbose": "updatedAt",
                 "control": {
+                    "datetime": true
+                },
+                "type": "datetime",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "orders": {
+        "slug": "orders",
+        "table": {
+            "name": "orders",
+            "pk": "id",
+            "verbose": "orders"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
                     "text": true
+                },
+                "type": "int",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "movie_id",
+                "verbose": "movie_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "seat_id",
+                "verbose": "seat_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "createdAt",
+                "verbose": "createdAt",
+                "control": {
+                    "datetime": true
+                },
+                "type": "datetime",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "updatedAt",
+                "verbose": "updatedAt",
+                "control": {
+                    "datetime": true
                 },
                 "type": "datetime",
                 "allowNull": false,
@@ -255,7 +355,7 @@
                 "name": "createdAt",
                 "verbose": "createdAt",
                 "control": {
-                    "text": true
+                    "datetime": true
                 },
                 "type": "datetime",
                 "allowNull": false,
@@ -271,7 +371,7 @@
                 "name": "updatedAt",
                 "verbose": "updatedAt",
                 "control": {
-                    "text": true
+                    "datetime": true
                 },
                 "type": "datetime",
                 "allowNull": false,
