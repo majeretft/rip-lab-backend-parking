@@ -130,3 +130,8 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
+// Get possible statuses
+exports.getStatuses = (req, res) => {
+  res.send(Order.statusEnum);
+};

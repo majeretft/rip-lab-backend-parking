@@ -21,5 +21,8 @@ module.exports = (app) => {
   // Delete all Seats
   router.delete("/", controller.deleteAll);
 
+  // Get possible statuses
+  router.get("/info/statuses", controller.getStatuses);
+
   app.use("/api/orders", router);
 };

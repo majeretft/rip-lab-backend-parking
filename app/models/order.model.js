@@ -1,5 +1,8 @@
 module.exports = (sequelize, Sequelize, Movies, Seats) => {
   const Model = sequelize.define("order", {
+    status: {
+      type: Sequelize.INTEGER,
+    },
     movie_id: {
       type: Sequelize.INTEGER,
       references: {
@@ -21,6 +24,11 @@ module.exports = (sequelize, Sequelize, Movies, Seats) => {
       },
     },
   });
+
+  Model.statusEnum = {
+    "cart": 1,
+    "payed": 2,
+  };
 
   return Model;
 };
