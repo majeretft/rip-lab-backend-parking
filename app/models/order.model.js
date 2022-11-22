@@ -25,10 +25,10 @@ module.exports = (sequelize, Sequelize, Movies, Seats) => {
     },
   });
 
-  Model.statusEnum = {
-    "cart": 1,
-    "payed": 2,
-  };
+  Model.statusEnum = [
+    { val: 1, name: "В корзине" },
+    { val: 2, name: "Оплачен" },
+  ];
 
   return Model;
 };
