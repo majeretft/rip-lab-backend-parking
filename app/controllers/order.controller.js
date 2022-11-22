@@ -14,6 +14,7 @@ exports.create = (req, res) => {
 
   // Create a Order
   const obj = {
+    status: req.body.status,
     movie_id: req.body.movie_id,
     seat_id: req.body.seat_id,
   };
