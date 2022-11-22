@@ -36,6 +36,11 @@ exports.create = (req, res) => {
 
 // Retrieve all Movie from the database.
 exports.findAll = (req, res) => {
+  if (!req.query.name)
+    res.status(404).send({
+      message: `Cannot find Movies with empty name.`,
+    });
+
   const name = req.query.name;
   var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
 
@@ -148,8 +153,7 @@ exports.findAllByYear = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Movies.",
+        message: err.message || "Some error occurred while retrieving Movies.",
       });
     });
 };
