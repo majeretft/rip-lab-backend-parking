@@ -36,10 +36,12 @@ exports.create = (req, res) => {
 
 // Retrieve all Movie from the database.
 exports.findAll = (req, res) => {
-  if (!req.query.name)
+  if (req.query.hasOwnProperty(`name`) && !req.query.name) {
     res.status(404).send({
       message: `Cannot find Movies with empty name.`,
     });
+    return;
+  }
 
   const name = req.query.name;
   var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
