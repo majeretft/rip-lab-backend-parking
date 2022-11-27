@@ -2,11 +2,25 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./app/models");
+const Role = db.role;
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user",
+  });
+
+  Role.create({
+    id: 2,
+    name: "admin",
+  });
+}
 
 db.sequelize
   .sync({ force: true })
   .then(() => {
     console.log("Drop and re-sync db.");
+    initial();
   })
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
@@ -35,6 +49,7 @@ app.get("/", (req, res) => {
 require("./app/routes/movie.routes")(app);
 require("./app/routes/seat.routes")(app);
 require("./app/routes/order.routes")(app);
+require('./app/routes/auth.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

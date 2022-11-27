@@ -21,6 +21,21 @@ db.sequelize = sequelize;
 
 db.movies = require("./movie.model.js")(sequelize, Sequelize);
 db.seats = require("./seat.model.js")(sequelize, Sequelize);
-db.orders = require("./order.model.js")(sequelize, Sequelize, db.movies, db.seats);
+db.orders = require("./order.model.js")(sequelize, Sequelize);
+db.user = require("./user.model.js")(sequelize, Sequelize);
+db.role = require("./role.model.js")(sequelize, Sequelize);
+
+db.role.belongsToMany(db.user, {
+  through: "user_roles",
+  foreignKey: "roleId",
+  otherKey: "userId",
+});
+db.user.belongsToMany(db.role, {
+  through: "user_roles",
+  foreignKey: "userId",
+  otherKey: "roleId",
+});
+
+db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;
