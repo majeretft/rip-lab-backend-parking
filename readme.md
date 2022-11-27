@@ -8,6 +8,7 @@
 2. Использованные ститьи <br>
 https://www.bezkoder.com/node-js-express-sequelize-mysql/ <br>
 https://www.bezkoder.com/node-js-jwt-authentication-mysql/ <br>
-https://www.bezkoder.com/react-redux-mysql-crud/ <br>
+Не использовал https://www.bezkoder.com/react-redux-mysql-crud/ <br>
 https://www.bezkoder.com/react-node-express-mysql/ <br>
-https://www.bezkoder.com/react-hooks-redux-login-registration-example/
+Не использовал https://www.bezkoder.com/react-hooks-redux-login-registration-example/ <br>
+https://www.bezkoder.com/react-redux-login-example-toolkit-hooks/
