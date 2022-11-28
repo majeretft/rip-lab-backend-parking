@@ -4,26 +4,26 @@ module.exports = (app) => {
 
   const router = require("express").Router();
 
-  // Create a new Seat
-  router.post("/", [authJwt.verifyToken, authJwt.isAdmin], controller.create);
+  // Create a new Order
+  router.post("/", [authJwt.verifyToken], controller.create);
 
-  // Retrieve all Seats
-  router.get("/", controller.findAll);
+  // Retrieve all Orders
+  router.get("/", [authJwt.verifyToken], controller.findAll);
 
-  // Retrieve a single Seat with id
-  router.get("/:id", controller.findOne);
+  // Retrieve a single Order with id
+  router.get("/:id", [authJwt.verifyToken], controller.findOne);
 
-  // Update a Seat with id
-  router.put("/:id", [authJwt.verifyToken, authJwt.isAdmin], controller.update);
+  // Update a Order with id
+  router.put("/:id", [authJwt.verifyToken], controller.update);
 
-  // Delete a Seat with id
+  // Delete a Order with id
   router.delete(
     "/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken],
     controller.delete
   );
 
-  // Delete all Seats
+  // Delete all Orders
   router.delete(
     "/",
     [authJwt.verifyToken, authJwt.isAdmin],

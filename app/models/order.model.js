@@ -11,6 +11,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       references: sequelize.seats,
     },
+    user_id: {
+      type: Sequelize.INTEGER,
+      references: sequelize.users,
+    },
   });
 
   Model.statusEnum = [
