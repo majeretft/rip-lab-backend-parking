@@ -19,8 +19,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.movies = require("./movie.model.js")(sequelize, Sequelize);
-db.seats = require("./seat.model.js")(sequelize, Sequelize);
-db.orders = require("./order.model.js")(sequelize, Sequelize, db.movies, db.seats);
+db.users = require("./users.model")(sequelize, Sequelize);
+db.parkings = require("./parking.model")(sequelize, Sequelize);
+db.parkOrders = require("./parkOrder.model")(sequelize, Sequelize, db.parkings, db.users);
 
 module.exports = db;

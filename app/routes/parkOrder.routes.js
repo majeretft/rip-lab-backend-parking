@@ -1,24 +1,24 @@
 module.exports = (app) => {
-  const controller = require("../controllers/order.controller.js");
+  const controller = require("../controllers/parkOrder.controller");
 
   const router = require("express").Router();
 
-  // Create a new Seat
+  // Create a new Order
   router.post("/", controller.create);
 
-  // Retrieve all Seats
+  // Retrieve all Orders
   router.get("/", controller.findAll);
 
-  // Retrieve a single Seat with id
+  // Retrieve a single Order with id
   router.get("/:id", controller.findOne);
 
-  // Update a Seat with id
+  // Update a Order with id
   router.put("/:id", controller.update);
 
-  // Delete a Seat with id
+  // Delete a Order with id
   router.delete("/:id", controller.delete);
 
-  // Delete all Seats
+  // Delete all Orders
   router.delete("/", controller.deleteAll);
 
   // Get possible statuses

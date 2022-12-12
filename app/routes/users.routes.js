@@ -1,28 +1,25 @@
 module.exports = (app) => {
-  const controller = require("../controllers/movie.controller.js");
+  const controller = require("../controllers/users.controller.js");
 
   const router = require("express").Router();
 
-  // Create a new Movie
+  // Create a new User
   router.post("/", controller.create);
 
-  // Retrieve all Movies
+  // Retrieve all Users
   router.get("/", controller.findAll);
 
-  // Retrieve Movies by year
-  router.get("/year/:year", controller.findAllByYear);
-
-  // Retrieve a single Movie with id
+  // Retrieve a single User with id
   router.get("/:id", controller.findOne);
 
-  // Update a Movie with id
+  // Update a User with id
   router.put("/:id", controller.update);
 
-  // Delete a Movie with id
+  // Delete a User with id
   router.delete("/:id", controller.delete);
 
-  // Delete all Movies
+  // Delete all Users
   router.delete("/", controller.deleteAll);
 
-  app.use("/api/movies", router);
+  app.use("/api/users", router);
 };

@@ -1,16 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
-  const Model = sequelize.define("seat", {
-    hall: {
+  const Model = sequelize.define("parking", {
+    parkingPlaces: {
       type: Sequelize.INTEGER,
     },
-    number: {
+    freePlaces: {
       type: Sequelize.INTEGER,
     },
-    row: {
-      type: Sequelize.INTEGER,
-    },
-    price: {
-      type: Sequelize.DOUBLE,
+    address: {
+      type: Sequelize.STRING,
     },
   });
 

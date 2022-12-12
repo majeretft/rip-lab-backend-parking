@@ -2,11 +2,20 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./app/models");
+const User = db.users;
+
+function initial() {
+  User.create({
+    name: "Гость",
+    car: "Воображаемый автомобиль",
+  });
+}
 
 db.sequelize
   .sync({ force: true })
   .then(() => {
     console.log("Drop and re-sync db.");
+    initial();
   })
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
@@ -28,13 +37,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome backend application." });
 });
 
 // require routes
-require("./app/routes/movie.routes")(app);
-require("./app/routes/seat.routes")(app);
-require("./app/routes/order.routes")(app);
+require("./app/routes/users.routes")(app);
+require("./app/routes/parking.routes")(app);
+require("./app/routes/parkOrder.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

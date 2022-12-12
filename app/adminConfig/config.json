@@ -1,6 +1,6 @@
 {
     "mysql": {
-        "database": "labwork",
+        "database": "labwork_parking_6",
         "user": "labwork",
         "password": "1234"
     },

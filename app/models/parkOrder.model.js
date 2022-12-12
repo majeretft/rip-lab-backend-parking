@@ -1,23 +1,23 @@
-module.exports = (sequelize, Sequelize, Movies, Seats) => {
-  const Model = sequelize.define("order", {
+module.exports = (sequelize, Sequelize, Parkings, Users) => {
+  const Model = sequelize.define("parkorder", {
     status: {
       type: Sequelize.INTEGER,
     },
-    movie_id: {
+    parking_id: {
       type: Sequelize.INTEGER,
       references: {
         // This is a reference to another model
-        model: Movies,
+        model: Parkings,
 
         // This is the column name of the referenced model
         key: "id",
       },
     },
-    seat_id: {
+    user_id: {
       type: Sequelize.INTEGER,
       references: {
         // This is a reference to another model
-        model: Seats,
+        model: Users,
 
         // This is the column name of the referenced model
         key: "id",

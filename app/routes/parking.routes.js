@@ -1,25 +1,25 @@
 module.exports = (app) => {
-  const controller = require("../controllers/seat.controller.js");
+  const controller = require("../controllers/parking.controller");
 
   const router = require("express").Router();
 
-  // Create a new Seat
+  // Create a new Parking
   router.post("/", controller.create);
 
-  // Retrieve all Seats
+  // Retrieve all Parkings
   router.get("/", controller.findAll);
 
-  // Retrieve a single Seat with id
+  // Retrieve a single Parking with id
   router.get("/:id", controller.findOne);
 
-  // Update a Seat with id
+  // Update a Parking with id
   router.put("/:id", controller.update);
 
-  // Delete a Seat with id
+  // Delete a Parking with id
   router.delete("/:id", controller.delete);
 
-  // Delete all Seats
+  // Delete all Parkings
   router.delete("/", controller.deleteAll);
 
-  app.use("/api/seats", router);
+  app.use("/api/parkings", router);
 };
