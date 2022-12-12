@@ -24,12 +24,12 @@ db.parkings = require("./parking.model")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
 db.parkOrders = require("./parkOrder.model")(sequelize, Sequelize, db.parkings, db.users);
 
-db.role.belongsToMany(db.user, {
+db.role.belongsToMany(db.users, {
   through: "user_roles",
   foreignKey: "roleId",
   otherKey: "userId",
 });
-db.user.belongsToMany(db.role, {
+db.users.belongsToMany(db.role, {
   through: "user_roles",
   foreignKey: "userId",
   otherKey: "roleId",

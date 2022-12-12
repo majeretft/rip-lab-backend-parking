@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 const db = require("./app/models");
 const Role = db.role;
-const User = db.user;
+const User = db.users;
 
 function initial() {
   Role.create({
