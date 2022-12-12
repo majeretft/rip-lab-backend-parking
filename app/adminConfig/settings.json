@@ -1,10 +1,10 @@
 {
-    "movies": {
-        "slug": "movies",
+    "parkings": {
+        "slug": "parkings",
         "table": {
-            "name": "movies",
+            "name": "parkings",
             "pk": "id",
-            "verbose": "movies"
+            "verbose": "parkings"
         },
         "columns": [
             {
@@ -24,72 +24,8 @@
                 }
             },
             {
-                "name": "name",
-                "verbose": "name",
-                "control": {
-                    "text": true
-                },
-                "type": "varchar(255)",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "description",
-                "verbose": "description",
-                "control": {
-                    "text": true
-                },
-                "type": "varchar(255)",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "genres",
-                "verbose": "genres",
-                "control": {
-                    "text": true
-                },
-                "type": "varchar(255)",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "country",
-                "verbose": "country",
-                "control": {
-                    "text": true
-                },
-                "type": "varchar(255)",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "year",
-                "verbose": "year",
+                "name": "parkingPlaces",
+                "verbose": "parkingPlaces",
                 "control": {
                     "text": true
                 },
@@ -104,8 +40,24 @@
                 }
             },
             {
-                "name": "image",
-                "verbose": "image",
+                "name": "freePlaces",
+                "verbose": "freePlaces",
+                "control": {
+                    "text": true
+                },
+                "type": "int",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "address",
+                "verbose": "address",
                 "control": {
                     "text": true
                 },
@@ -163,12 +115,12 @@
             "readonly": false
         }
     },
-    "orders": {
-        "slug": "orders",
+    "parkorders": {
+        "slug": "parkorders",
         "table": {
-            "name": "orders",
+            "name": "parkorders",
             "pk": "id",
-            "verbose": "orders"
+            "verbose": "parkorders"
         },
         "columns": [
             {
@@ -188,8 +140,8 @@
                 }
             },
             {
-                "name": "movie_id",
-                "verbose": "movie_id",
+                "name": "status",
+                "verbose": "status",
                 "control": {
                     "text": true
                 },
@@ -204,8 +156,24 @@
                 }
             },
             {
-                "name": "seat_id",
-                "verbose": "seat_id",
+                "name": "parking_id",
+                "verbose": "parking_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "user_id",
+                "verbose": "user_id",
                 "control": {
                     "text": true
                 },
@@ -243,22 +211,6 @@
                 },
                 "type": "datetime",
                 "allowNull": false,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "status",
-                "verbose": "status",
-                "control": {
-                    "text": true
-                },
-                "type": "int",
-                "allowNull": true,
                 "defaultValue": null,
                 "listview": {
                     "show": true
@@ -295,12 +247,12 @@
             "readonly": false
         }
     },
-    "seats": {
-        "slug": "seats",
+    "users": {
+        "slug": "users",
         "table": {
-            "name": "seats",
+            "name": "users",
             "pk": "id",
-            "verbose": "seats"
+            "verbose": "users"
         },
         "columns": [
             {
@@ -320,12 +272,12 @@
                 }
             },
             {
-                "name": "hall",
-                "verbose": "hall",
+                "name": "name",
+                "verbose": "name",
                 "control": {
                     "text": true
                 },
-                "type": "int",
+                "type": "varchar(255)",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {
@@ -336,44 +288,12 @@
                 }
             },
             {
-                "name": "number",
-                "verbose": "number",
+                "name": "car",
+                "verbose": "car",
                 "control": {
                     "text": true
                 },
-                "type": "int",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "row",
-                "verbose": "row",
-                "control": {
-                    "text": true
-                },
-                "type": "int",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "price",
-                "verbose": "price",
-                "control": {
-                    "text": true
-                },
-                "type": "double",
+                "type": "varchar(255)",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {

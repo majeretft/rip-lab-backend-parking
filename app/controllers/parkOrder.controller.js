@@ -1,11 +1,12 @@
 const db = require("../models");
-const Order = db.orders;
+const Order = db.parkOrders;
+const Parking = db.parkings;
 // const Op = db.Sequelize.Op;
 
 // Create and Save a new Order
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.movie_id) {
+  if (!req.body.parking_id) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -15,9 +16,8 @@ exports.create = (req, res) => {
   // Create a Order
   const obj = {
     status: req.body.status,
-    movie_id: req.body.movie_id,
-    seat_id: req.body.seat_id,
-    user_id: req.userId,
+    parking_id: req.body.parking_id,
+    user_id: req.body.user_id,
   };
 
   // Save Order in the database
