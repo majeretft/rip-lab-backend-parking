@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 const db = require("./app/models");
 const Role = db.role;
-const User = db.user;
+const User = db.users;
 
 function initial() {
   Role.create({
@@ -21,6 +21,8 @@ function initial() {
     username: "admin",
     email: "admin@email.com",
     password: bcrypt.hashSync("admin", 8),
+    name: "Админ",
+    car: "Воображаемый автомобиль",
   }).then((user) => {
     user.setRoles([2]);
   });
@@ -52,15 +54,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome backend application." });
 });
 
 // require routes
-require("./app/routes/movie.routes")(app);
-require("./app/routes/seat.routes")(app);
-require("./app/routes/order.routes")(app);
 require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
+require("./app/routes/users.routes")(app);
+require("./app/routes/parking.routes")(app);
+require("./app/routes/parkOrder.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

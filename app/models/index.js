@@ -19,18 +19,17 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.movies = require("./movie.model.js")(sequelize, Sequelize);
-db.seats = require("./seat.model.js")(sequelize, Sequelize);
-db.user = require("./user.model.js")(sequelize, Sequelize);
+db.users = require("./users.model")(sequelize, Sequelize);
+db.parkings = require("./parking.model")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
-db.orders = require("./order.model.js")(sequelize, Sequelize);
+db.parkOrders = require("./parkOrder.model")(sequelize, Sequelize, db.parkings, db.users);
 
-db.role.belongsToMany(db.user, {
+db.role.belongsToMany(db.users, {
   through: "user_roles",
   foreignKey: "roleId",
   otherKey: "userId",
 });
-db.user.belongsToMany(db.role, {
+db.users.belongsToMany(db.role, {
   through: "user_roles",
   foreignKey: "userId",
   otherKey: "roleId",

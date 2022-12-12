@@ -1,21 +1,18 @@
 module.exports = (sequelize, Sequelize) => {
-  const Model = sequelize.define("movie", {
+  const Model = sequelize.define("users", {
+    username: {
+      type: Sequelize.STRING,
+    },
+    email: {
+      type: Sequelize.STRING,
+    },
+    password: {
+      type: Sequelize.STRING,
+    },
     name: {
       type: Sequelize.STRING,
     },
-    description: {
-      type: Sequelize.STRING,
-    },
-    genres: {
-      type: Sequelize.STRING,
-    },
-    country: {
-      type: Sequelize.STRING,
-    },
-    year: {
-      type: Sequelize.INTEGER,
-    },
-    image: {
+    car: {
       type: Sequelize.STRING,
     },
   });

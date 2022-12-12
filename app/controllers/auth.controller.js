@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const db = require("../models");
 const config = require("../auth.config");
-const User = db.user;
+const User = db.users;
 const Role = db.role;
 
 const Op = db.Sequelize.Op;
@@ -14,6 +14,8 @@ exports.signup = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
+    name: req.body.name,
+    car: req.body.car,
   })
     .then((user) => {
       if (req.body.roles) {
@@ -76,6 +78,8 @@ exports.signin = (req, res) => {
           id: user.id,
           username: user.username,
           email: user.email,
+          name: user.name,
+          car: user.car,
           roles: authorities,
           accessToken: token,
         });
